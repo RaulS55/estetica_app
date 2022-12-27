@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "545674316584",
+    "project_id": "esteticaflutter",
+    "storage_bucket": "esteticaflutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545674316584:android:a6bcbfc3eeeeefd1155e1d",
+        "android_client_info": {
+          "package_name": "com.rdes.estetica_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "545674316584-fju6ried9ka0p5d7dpes0kh616piqeu7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdkehHiowMSYMwpaMt-Fg5V3bDJkbpcBA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "545674316584-fju6ried9ka0p5d7dpes0kh616piqeu7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
