@@ -39,9 +39,9 @@ class WellcomePage extends StatelessWidget {
                         fontWeight: FontWeight.w500),
                   ),
                   SizedBox(height: responsive.hp(4)),
-                  const CustomButtom(
+                  CustomButtom(
                     "Loging",
-                    onPressed: null,
+                    onPressed: () => Navigator.pushNamed(context, Routes.HOME),
                   ),
                   SizedBox(height: responsive.hp(4)),
                   Row(

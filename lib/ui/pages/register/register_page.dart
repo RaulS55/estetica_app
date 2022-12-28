@@ -35,8 +35,8 @@ class RegisterPage extends StatelessWidget {
                     suffixIcon: Icons.calendar_month_outlined,
                     onPressed: () {},
                   ),
-                  TextFieldItem(text: "Correo"),
-                  TextFieldItem(text: "Correo"),
+                  TextFieldItem(text: "Numero de teledono"),
+                  TextFieldItem(text: "Contraseña", obscureText: true),
                   SizedBox(height: 20),
                   CustomButtom("Agendar cita", color: blackColor)
                 ],

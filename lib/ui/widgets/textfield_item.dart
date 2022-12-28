@@ -5,11 +5,16 @@ import 'package:flutter/material.dart';
 
 class TextFieldItem extends StatefulWidget {
   const TextFieldItem(
-      {Key? key, required this.text, this.suffixIcon, this.onPressed})
+      {Key? key,
+      required this.text,
+      this.suffixIcon,
+      this.onPressed,
+      this.obscureText = false})
       : super(key: key);
   final String text;
   final IconData? suffixIcon;
   final Function()? onPressed;
+  final bool obscureText;
   @override
   State<TextFieldItem> createState() => _TextFieldItemState();
 }
@@ -46,6 +51,8 @@ class _TextFieldItemState extends State<TextFieldItem> {
           ),
           const SizedBox(height: 10),
           TextField(
+            style: TextStyle(fontSize: responsive.dp(2)),
+            obscureText: widget.obscureText,
             focusNode: focus,
             cursorColor: primaryColor,
             decoration: InputDecoration(
@@ -58,7 +65,7 @@ class _TextFieldItemState extends State<TextFieldItem> {
                       onPressed: widget.onPressed)
                   : null,
               contentPadding:
-                  const EdgeInsets.symmetric(vertical: 25, horizontal: 10),
+                  const EdgeInsets.symmetric(vertical: 22, horizontal: 10),
               enabledBorder: OutlineInputBorder(
                   borderSide: const BorderSide(color: greyColor, width: 2),
                   borderRadius: BorderRadius.circular(20)),
