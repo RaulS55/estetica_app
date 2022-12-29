@@ -4,11 +4,15 @@ import 'package:flutter/cupertino.dart';
 
 class CustomButtom extends StatelessWidget {
   const CustomButtom(this.text,
-      {Key? key, this.color = blackColor, this.onPressed})
+      {Key? key,
+      this.color = blackColor,
+      this.onPressed,
+      this.textColor = whiteColor})
       : super(key: key);
   final String text;
   final Color color;
   final Function()? onPressed;
+  final Color? textColor;
   @override
   Widget build(BuildContext context) {
     final responsive = Responsive(context);
@@ -26,8 +30,8 @@ class CustomButtom extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-              color: whiteColor,
-              fontSize: responsive.dp(3),
+              color: textColor,
+              fontSize: responsive.dp(2.8),
               fontWeight: FontWeight.w500),
         ),
       ),

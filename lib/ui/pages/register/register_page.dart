@@ -26,7 +26,10 @@ class RegisterPage extends StatelessWidget {
               color: Colors.transparent,
               child: Column(
                 children: [
-                  AppBarItem(),
+                  AppBarItem(
+                    icon: Icons.arrow_back_ios,
+                    text: "Registro",
+                  ),
                   SizedBox(height: 15),
                   TextFieldItem(text: "Nombre"),
                   TextFieldItem(text: "Correo"),

@@ -1,4 +1,7 @@
+import 'package:estetica_app/ui/pages/home/tabs/calendar_tab/calendar_tab.dart';
 import 'package:estetica_app/ui/pages/home/tabs/home_tab/home_tab.dart';
+import 'package:estetica_app/ui/pages/home/tabs/profile_tab/profile_tab.dart';
+import 'package:estetica_app/ui/pages/home/tabs/services_tab/services_tab.dart';
 import 'package:estetica_app/ui/util/responsive.dart';
 import 'package:flutter/material.dart';
 
@@ -24,16 +27,10 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(
-            vertical: responsive.hp(2), horizontal: responsive.wp(7)),
-        child: DefaultTabController(
-          length: 2,
-          child: TabBarView(children: [
-            HomeTab(),
-            Container(color: Colors.pink, width: double.infinity),
-          ]),
-        ),
+      body: DefaultTabController(
+        length: 4,
+        child: TabBarView(
+            children: [HomeTab(), CalendarTab(), ServicesTab(), ProfileTab()]),
       ),
     );
   }
