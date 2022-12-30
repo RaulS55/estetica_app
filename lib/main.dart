@@ -4,11 +4,22 @@ import 'package:estetica_app/ui/pages/home/home_controller.dart';
 import 'package:estetica_app/ui/routes/pages.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  //Inyeccion de dependencias
   DependencyInjection.inicialize();
+
+  //Evitar que la pantalla rote
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
+  //Inicializa firebase
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(ChangeNotifierProvider(
       create: (context) => HomeController(), child: const MyApp()));

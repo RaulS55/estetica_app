@@ -18,6 +18,7 @@ class ServicesTab extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            //LISTA DE SERVICIOS
             Center(
               child: Text("Servicios",
                   style: TextStyle(
@@ -26,6 +27,8 @@ class ServicesTab extends StatelessWidget {
             ),
             SizedBox(height: responsive.hp(2)),
             const ServicesList(),
+
+            //DETALLE DE SERVICIOS
             SizedBox(height: responsive.hp(2)),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 15),
@@ -34,6 +37,8 @@ class ServicesTab extends StatelessWidget {
               decoration: BoxDecoration(
                   color: primaryColor, borderRadius: BorderRadius.circular(30)),
             ),
+
+            //MAS INFORMACION BOTON
             SizedBox(height: responsive.hp(4)),
             Center(
                 child: CustomButtom(

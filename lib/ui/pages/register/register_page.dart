@@ -29,13 +29,20 @@ class RegisterPage extends StatelessWidget {
               color: Colors.transparent,
               child: Column(
                 children: [
+                  //APPBAR
                   const AppBarItem(
                     icon: Icons.arrow_back_ios,
                     text: "Registro",
                   ),
-                  SizedBox(height: 15),
-                  TextFieldItem(text: "Nombre"),
-                  TextFieldItem(text: "Correo"),
+                  const SizedBox(height: 15),
+
+                  //NOMBRE CAMPO
+                  const TextFieldItem(text: "Nombre"),
+
+                  //EMAIL CAMPO
+                  const TextFieldItem(text: "Correo"),
+
+                  //FECHA CAMPO
                   TextFieldItem(
                     controller: dateController,
                     text: "Fecha de nacimiento",
@@ -56,10 +63,16 @@ class RegisterPage extends StatelessWidget {
                       }
                     },
                   ),
-                  TextFieldItem(text: "Numero de telefono"),
-                  TextFieldItem(text: "Contraseña", obscureText: true),
-                  SizedBox(height: 20),
-                  CustomButtom("Agendar cita", color: blackColor)
+
+                  //TELEFONO CAMPO
+                  const TextFieldItem(text: "Numero de telefono"),
+
+                  //CONTRASEÑA CAMPO
+                  const TextFieldItem(text: "Contraseña", obscureText: true),
+                  const SizedBox(height: 20),
+
+                  //BOTON REGISTRAR
+                  const CustomButtom("Registrar", color: blackColor)
                 ],
               ),
             ),

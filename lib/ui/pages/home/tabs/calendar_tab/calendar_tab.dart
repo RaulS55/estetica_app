@@ -1,6 +1,5 @@
 import 'package:estetica_app/ui/pages/home/tabs/calendar_tab/widgets/calendar_item.dart';
 import 'package:estetica_app/ui/pages/home/tabs/calendar_tab/widgets/reservation_item.dart';
-import 'package:estetica_app/ui/util/colors.dart';
 import 'package:estetica_app/ui/util/responsive.dart';
 import 'package:flutter/material.dart';
 
@@ -17,8 +16,11 @@ class CalendarTab extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          //CALENDARIO
           const CalendarItem(),
           SizedBox(height: responsive.hp(3)),
+
+          //RESRVACIONES
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Text(

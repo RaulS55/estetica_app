@@ -32,8 +32,8 @@ migrate_working_dir/
 .pub/
 /build/
 
-macos/Runner/GoogleService-Info.plist
-ios/Runner/GoogleService-Info.plist
+#macos/Runner/GoogleService-Info.plist
+#ios/Runner/GoogleService-Info.plist
 
 # Symbolication related
 app.*.symbols

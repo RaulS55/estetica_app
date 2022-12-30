@@ -20,6 +20,7 @@ class ProfileListTile extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
       child: ListTile(
+        onTap: () {},
         leading: CupertinoButton(
             padding: EdgeInsets.zero,
             color: greyligthColor,

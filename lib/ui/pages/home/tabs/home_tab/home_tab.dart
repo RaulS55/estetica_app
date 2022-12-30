@@ -19,15 +19,22 @@ class HomeTab extends StatelessWidget {
             vertical: responsive.hp(2), horizontal: responsive.wp(7)),
         child: Column(
           children: [
+            //APPBAR
             AppBarItem(
               icon: Icons.notifications_outlined,
               text: controller.user.displayName!.split(" ").first,
               subText: "Buenos días",
+              onPressed: () {},
             ),
+
+            //OFERTAS
             SizedBox(height: responsive.hp(3)),
             const SaleItem(),
+            //MAPA
             SizedBox(height: responsive.hp(3)),
             const MapItem(),
+
+            //TEXTO FINAL
             SizedBox(height: responsive.hp(3)),
             Text(
               "Lorem ipsum is a placeholder text commonly the visual form",

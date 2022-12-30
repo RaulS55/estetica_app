@@ -15,11 +15,14 @@ class ProfileTab extends StatelessWidget {
     final responsive = Responsive(context);
     return Column(
       children: [
+        //DATOS DEL PERFIL
         ProfileItem(),
+
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
           child: Column(
             children: [
+              //OPCIONES
               const ProfileListTile(
                   text: "Notificaciones",
                   icon: Icons.notifications,
@@ -29,8 +32,10 @@ class ProfileTab extends StatelessWidget {
                   icon: Icons.bookmark,
                   iconColor: Colors.lightBlue),
               SizedBox(height: responsive.hp(4)),
+
+              //CERRAR SESION
               CustomButtom(
-                "Cerrar Sesion",
+                "Cerrar Sesión",
                 onPressed: () {
                   controller.signOff();
                   Navigator.popAndPushNamed(context, Routes.WELLCOME);

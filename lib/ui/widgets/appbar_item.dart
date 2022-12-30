@@ -4,11 +4,16 @@ import 'package:flutter/material.dart';
 
 class AppBarItem extends StatelessWidget {
   const AppBarItem(
-      {Key? key, required this.icon, required this.text, this.subText})
+      {Key? key,
+      required this.icon,
+      required this.text,
+      this.subText,
+      this.onPressed})
       : super(key: key);
   final IconData icon;
   final String text;
   final String? subText;
+  final Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     final responsive = Responsive(context);
@@ -23,7 +28,7 @@ class AppBarItem extends StatelessWidget {
               shape: BoxShape.circle,
               border: Border.all(color: greyColor, width: 2)),
           child: IconButton(
-              onPressed: Navigator.of(context).pop,
+              onPressed: onPressed ?? Navigator.of(context).pop,
               icon: Icon(
                 icon,
                 size: responsive.dp(3),
