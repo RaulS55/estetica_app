@@ -9,12 +9,21 @@ class TextFieldItem extends StatefulWidget {
       required this.text,
       this.suffixIcon,
       this.onPressed,
+      this.onChanged,
+      this.onTap,
+      this.controller,
+      this.readOnly = false,
       this.obscureText = false})
       : super(key: key);
   final String text;
   final IconData? suffixIcon;
   final Function()? onPressed;
   final bool obscureText;
+  final Function(String)? onChanged;
+  final Function()? onTap;
+  final bool readOnly;
+  final TextEditingController? controller;
+
   @override
   State<TextFieldItem> createState() => _TextFieldItemState();
 }
@@ -31,6 +40,7 @@ class _TextFieldItemState extends State<TextFieldItem> {
 
   @override
   void dispose() {
+    widget.controller?.dispose();
     focus.dispose();
     super.dispose();
   }
@@ -51,6 +61,10 @@ class _TextFieldItemState extends State<TextFieldItem> {
           ),
           const SizedBox(height: 10),
           TextField(
+            controller: widget.controller,
+            onTap: widget.onTap,
+            readOnly: widget.readOnly,
+            onChanged: widget.onChanged,
             style: TextStyle(fontSize: responsive.dp(2)),
             obscureText: widget.obscureText,
             focusNode: focus,
@@ -58,11 +72,12 @@ class _TextFieldItemState extends State<TextFieldItem> {
             decoration: InputDecoration(
               suffixIcon: widget.suffixIcon != null
                   ? CupertinoButton(
+                      onPressed: widget.onPressed,
                       child: Icon(
                         widget.suffixIcon,
                         color: focus.hasFocus ? primaryColor : greyColor,
                       ),
-                      onPressed: widget.onPressed)
+                    )
                   : null,
               contentPadding:
                   const EdgeInsets.symmetric(vertical: 22, horizontal: 10),

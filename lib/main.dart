@@ -1,12 +1,17 @@
-import 'package:estetica_app/firebase_options.dart';
+import 'package:estetica_app/data/services/firebase_options.dart';
+import 'package:estetica_app/helpers/dependency_injection.dart';
+import 'package:estetica_app/ui/pages/home/home_controller.dart';
 import 'package:estetica_app/ui/routes/pages.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  DependencyInjection.inicialize();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => HomeController(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

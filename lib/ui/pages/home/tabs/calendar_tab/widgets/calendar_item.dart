@@ -53,8 +53,12 @@ class CalendarItem extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: responsive.wp(7)),
-            child: CustomButtom("Agendar cita",
-                color: whiteColor, textColor: blackColor),
+            child: CustomButtom(
+              "Agendar cita",
+              color: whiteColor,
+              textColor: blackColor,
+              onPressed: () {},
+            ),
           )
         ],
       ),

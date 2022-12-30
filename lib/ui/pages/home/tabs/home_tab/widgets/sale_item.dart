@@ -1,6 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:estetica_app/ui/util/colors.dart';
 import 'package:estetica_app/ui/util/responsive.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class SaleItem extends StatelessWidget {
   const SaleItem({
@@ -16,7 +18,19 @@ class SaleItem extends StatelessWidget {
           color: greyligthColor, borderRadius: BorderRadius.circular(10)),
       child: Row(
         children: [
-          const Spacer(),
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                  color: greyligthColor,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      bottomLeft: Radius.circular(10)),
+                  image: DecorationImage(
+                      image: CachedNetworkImageProvider(
+                          "https://myspapura.com/wp-content/uploads/2019/01/195530.jpg"),
+                      fit: BoxFit.cover)),
+            ),
+          ),
           Container(
             width: responsive.wp(40),
             padding: const EdgeInsets.all(5),

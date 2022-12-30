@@ -17,7 +17,7 @@ class CalendarTab extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CalendarItem(),
+          const CalendarItem(),
           SizedBox(height: responsive.hp(3)),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -27,8 +27,8 @@ class CalendarTab extends StatelessWidget {
                   fontSize: responsive.dp(3), fontWeight: FontWeight.w600),
             ),
           ),
-          ReservationItem(),
-          ReservationItem(),
+          const ReservationItem(),
+          const ReservationItem(),
         ],
       ),
     ));

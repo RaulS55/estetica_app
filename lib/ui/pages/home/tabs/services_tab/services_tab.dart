@@ -1,8 +1,10 @@
+import 'package:estetica_app/ui/pages/home/home_controller.dart';
 import 'package:estetica_app/ui/pages/home/tabs/services_tab/widgets/services_list.dart';
 import 'package:estetica_app/ui/util/colors.dart';
 import 'package:estetica_app/ui/util/responsive.dart';
 import 'package:estetica_app/ui/widgets/custom_buttom.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
 class ServicesTab extends StatelessWidget {
   const ServicesTab({Key? key}) : super(key: key);
@@ -33,7 +35,14 @@ class ServicesTab extends StatelessWidget {
                   color: primaryColor, borderRadius: BorderRadius.circular(30)),
             ),
             SizedBox(height: responsive.hp(4)),
-            const Center(child: CustomButtom("Mas información"))
+            Center(
+                child: CustomButtom(
+              "Mas información",
+              onPressed: () {
+                final controller = GetIt.instance<HomeController>();
+                controller.setUserValors();
+              },
+            ))
           ],
         ),
       ),

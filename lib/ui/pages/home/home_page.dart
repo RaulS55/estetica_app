@@ -2,11 +2,31 @@ import 'package:estetica_app/ui/pages/home/tabs/calendar_tab/calendar_tab.dart';
 import 'package:estetica_app/ui/pages/home/tabs/home_tab/home_tab.dart';
 import 'package:estetica_app/ui/pages/home/tabs/profile_tab/profile_tab.dart';
 import 'package:estetica_app/ui/pages/home/tabs/services_tab/services_tab.dart';
+import 'package:estetica_app/ui/pages/home/widgets/float_menu.dart';
 import 'package:estetica_app/ui/util/responsive.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(vsync: this, length: 4);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,24 +34,12 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
-      floatingActionButton: Container(
-        width: responsive.wp(80),
-        margin: const EdgeInsets.only(bottom: 30),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Icon(Icons.home_outlined),
-            Icon(Icons.calendar_month_outlined),
-            Icon(Icons.leaderboard),
-            Icon(Icons.person_outline),
-          ],
-        ),
-      ),
-      body: DefaultTabController(
-        length: 4,
-        child: TabBarView(
-            children: [HomeTab(), CalendarTab(), ServicesTab(), ProfileTab()]),
-      ),
+      floatingActionButton:
+          FloatMenu(responsive: responsive, tabController: _tabController),
+      body: TabBarView(
+          physics: const BouncingScrollPhysics(),
+          controller: _tabController,
+          children: [HomeTab(), CalendarTab(), ServicesTab(), ProfileTab()]),
     );
   }
 }

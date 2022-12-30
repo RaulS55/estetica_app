@@ -4,9 +4,12 @@ import 'package:estetica_app/ui/widgets/appbar_item.dart';
 import 'package:estetica_app/ui/widgets/custom_buttom.dart';
 import 'package:estetica_app/ui/widgets/textfield_item.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 class RegisterPage extends StatelessWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+  RegisterPage({Key? key}) : super(key: key);
+  final dateController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +29,7 @@ class RegisterPage extends StatelessWidget {
               color: Colors.transparent,
               child: Column(
                 children: [
-                  AppBarItem(
+                  const AppBarItem(
                     icon: Icons.arrow_back_ios,
                     text: "Registro",
                   ),
@@ -34,11 +37,26 @@ class RegisterPage extends StatelessWidget {
                   TextFieldItem(text: "Nombre"),
                   TextFieldItem(text: "Correo"),
                   TextFieldItem(
+                    controller: dateController,
                     text: "Fecha de nacimiento",
                     suffixIcon: Icons.calendar_month_outlined,
-                    onPressed: () {},
+                    readOnly: true,
+                    onTap: () async {
+                      initializeDateFormatting();
+                      Intl.defaultLocale = 'es';
+                      DateTime? pickedDate = await showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(2000),
+                          lastDate: DateTime(2101));
+
+                      if (pickedDate != null) {
+                        dateController.text =
+                            DateFormat().add_yMMMMEEEEd().format(pickedDate);
+                      }
+                    },
                   ),
-                  TextFieldItem(text: "Numero de teledono"),
+                  TextFieldItem(text: "Numero de telefono"),
                   TextFieldItem(text: "Contraseña", obscureText: true),
                   SizedBox(height: 20),
                   CustomButtom("Agendar cita", color: blackColor)

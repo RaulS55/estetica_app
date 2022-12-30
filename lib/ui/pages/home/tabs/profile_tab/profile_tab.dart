@@ -1,39 +1,44 @@
-import 'package:estetica_app/ui/util/colors.dart';
+import 'package:estetica_app/ui/pages/home/home_controller.dart';
+import 'package:estetica_app/ui/pages/home/tabs/profile_tab/widgets/profile_item.dart';
+import 'package:estetica_app/ui/pages/home/tabs/profile_tab/widgets/profile_list_tile.dart';
+import 'package:estetica_app/ui/routes/routes.dart';
 import 'package:estetica_app/ui/util/responsive.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:estetica_app/ui/widgets/custom_buttom.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
 class ProfileTab extends StatelessWidget {
-  const ProfileTab({Key? key}) : super(key: key);
-
+  ProfileTab({Key? key}) : super(key: key);
+  final controller = GetIt.instance<HomeController>();
   @override
   Widget build(BuildContext context) {
     final responsive = Responsive(context);
     return Column(
       children: [
-        Container(
-          padding: EdgeInsets.all(40),
-          width: double.infinity,
-          height: responsive.hp(40),
-          decoration: BoxDecoration(
-              color: primaryColor, borderRadius: BorderRadius.circular(35)),
+        ProfileItem(),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
           child: Column(
-            mainAxisSize: MainAxisSize.min,
             children: [
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  CupertinoButton(
-                      padding: EdgeInsets.all(15),
-                      borderRadius: BorderRadius.circular(100),
-                      color: whiteColor.withOpacity(0.2),
-                      onPressed: (() {}),
-                      child: Icon(Icons.edit))
-                ],
+              const ProfileListTile(
+                  text: "Notificaciones",
+                  icon: Icons.notifications,
+                  iconColor: Colors.pinkAccent),
+              const ProfileListTile(
+                  text: "Terminos y condiciones",
+                  icon: Icons.bookmark,
+                  iconColor: Colors.lightBlue),
+              SizedBox(height: responsive.hp(4)),
+              CustomButtom(
+                "Cerrar Sesion",
+                onPressed: () {
+                  controller.signOff();
+                  Navigator.popAndPushNamed(context, Routes.WELLCOME);
+                },
               )
             ],
           ),
-        )
+        ),
       ],
     );
   }

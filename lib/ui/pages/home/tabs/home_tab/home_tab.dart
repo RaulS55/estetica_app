@@ -1,13 +1,15 @@
+import 'package:estetica_app/ui/pages/home/home_controller.dart';
 import 'package:estetica_app/ui/pages/home/tabs/home_tab/widgets/map_item.dart';
 import 'package:estetica_app/ui/pages/home/tabs/home_tab/widgets/sale_item.dart';
 import 'package:estetica_app/ui/util/colors.dart';
 import 'package:estetica_app/ui/util/responsive.dart';
 import 'package:estetica_app/ui/widgets/appbar_item.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
 class HomeTab extends StatelessWidget {
-  const HomeTab({Key? key}) : super(key: key);
-
+  HomeTab({Key? key}) : super(key: key);
+  final controller = GetIt.instance<HomeController>();
   @override
   Widget build(BuildContext context) {
     final responsive = Responsive(context);
@@ -17,9 +19,9 @@ class HomeTab extends StatelessWidget {
             vertical: responsive.hp(2), horizontal: responsive.wp(7)),
         child: Column(
           children: [
-            const AppBarItem(
+            AppBarItem(
               icon: Icons.notifications_outlined,
-              text: "Maria",
+              text: controller.user.displayName!.split(" ").first,
               subText: "Buenos días",
             ),
             SizedBox(height: responsive.hp(3)),

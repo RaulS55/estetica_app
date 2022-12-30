@@ -3,6 +3,7 @@ import 'package:estetica_app/ui/routes/routes.dart';
 import 'package:estetica_app/ui/util/colors.dart';
 import 'package:estetica_app/ui/util/responsive.dart';
 import 'package:estetica_app/ui/widgets/custom_buttom.dart';
+import 'package:estetica_app/ui/widgets/no_account_row.dart';
 import 'package:flutter/material.dart';
 
 class WellcomePage extends StatelessWidget {
@@ -41,34 +42,10 @@ class WellcomePage extends StatelessWidget {
                   SizedBox(height: responsive.hp(4)),
                   CustomButtom(
                     "Loging",
-                    onPressed: () => Navigator.pushNamed(context, Routes.HOME),
+                    onPressed: () => Navigator.pushNamed(context, Routes.LOGIN),
                   ),
                   SizedBox(height: responsive.hp(4)),
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        "¿No tienes cuenta? ",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: blackColor,
-                            fontSize: responsive.dp(2.3),
-                            fontWeight: FontWeight.w500),
-                      ),
-                      GestureDetector(
-                        onTap: () =>
-                            Navigator.pushNamed(context, Routes.REGISTER),
-                        child: Text(
-                          "Regístrate",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: secundaryColor,
-                              fontSize: responsive.dp(2.3),
-                              fontWeight: FontWeight.w500),
-                        ),
-                      ),
-                    ],
-                  )
+                  NoAccountRow(responsive: responsive)
                 ],
               ),
             ),
